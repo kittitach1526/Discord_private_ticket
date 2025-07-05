@@ -55,6 +55,9 @@ async def sendticket(ctx):
     await ctx.send("🎫 กดปุ่มด้านล่างเพื่อเปิด Ticket", view=view)
 
 class TicketButton(discord.ui.View):
+    def __init__(self, timeout=None):
+        super().__init__(timeout=timeout)
+        
     @discord.ui.button(label="🎫 เปิด Ticket", style=discord.ButtonStyle.green)
     async def create_ticket(self, interaction: discord.Interaction, button: discord.ui.Button):
         guild = interaction.guild
